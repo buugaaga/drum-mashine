@@ -1,10 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Provider } from 'react-redux';
 
-export default class App extends Component {
-  render () {
+import Main from './components/main';
+import store from './redux/store';
+
+export default class App extends React.Component {
+  render() {
     return (
-      <div id='drum-mashine'>
-      </div>
+      <Provider store={store} >
+        <Main />
+      </Provider>
     )
   }
 }
