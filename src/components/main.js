@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
+import { connect } from 'react-redux';
+
 
 // import DrubPad from './drum-pad';
 
-export default class Main extends Component {
+class Main extends Component {
   constructor() {
     super();
     this.state = {
@@ -12,6 +13,7 @@ export default class Main extends Component {
     }
     this.handleInput = this.handleInput.bind(this);
     this.submitMessage = this.submitMessage.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   handleInput(e) {
@@ -26,27 +28,30 @@ export default class Main extends Component {
       input: ''
     })
   }
+  reset() {
+    this.setState({
+      messages: []
+    })
+  }
 
   render () {
     let messages = this.state.messages;
     return (
-      <div className='container' id='drum-mashine'>
-        <div className='row'>
-          <div className='col-5'>
-            <input type='text' value={this.state.input} onChange={this.handleInput}></input>
-            <button onClick={this.submitMessage}>click me</button>
-          </div>
-          <div className='col-5'>
+      <div className="container">
+        <div className="wrapper">
+          <input className="input" value={this.state.input} onChange={this.handleInput} type="text"></input>
+          <button onClick={this.submitMessage}>click me</button>
+          <button className="reset" onClick={this.reset}>reset</button>
+          <div className="list">
             <ul>
-              {messages.map((val, i) => (
-                <li key={i}>{val}</li>
-              ))}
+              {messages.map( (val, i) => (<li key={i}>{val}</li>))}
             </ul>
           </div>
-
         </div>
-        
       </div>
     )
   }
 }
+
+
+export default connect()(Main)
