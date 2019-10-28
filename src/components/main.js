@@ -1,33 +1,32 @@
 import React from 'react';
 import { Container, Row, Col} from 'react-bootstrap';
 
-import  { keysTrigger, addTrigger } from '../actions';
+import  { keysTrigger } from '../actions';
+
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-      autoPlay: false
+      autoPlay: true
     }
 
-    this.playSound = this.playSound.bind(this);
+    // this.playSound = this.playSound.bind(this);
   }
   // componentWillMount() {
   //   this.props.keyTrigger();
   // }
 
-  playSound(e) {
-    console.log(e);
-    this.setState({
-      autoPlay: !this.state.autoPlay
-    })
+  // playSound(e) {
+  //   console.log(e);
+  //   this.props.keyTrigger();
     
-  }
+  // }
   
   render() {
-    // let { url } = this.props.state;
+    let { url } = this.props.state;
     
-    console.log(this.props.state)
+    console.log(this.props)
     // console.log(url);
     return (
       <Container>
@@ -37,12 +36,15 @@ class Main extends React.Component {
           <Col md={6} className='wrapper'>
           
             { keysTrigger.map( (val, i) => (
-            <div className='button' onClick={this.playSound} key={i} variant='primary' size="lg">
+            <div className='button' onClick={() => this.props.keyTrigger(val)} key={i} variant='primary' size="lg">
               {val}
-              <audio autoPlay={this.state.autoPlay} src={val.url}/>
+              <audio autoPlay={this.state.autoPlay} src={this.props.state.url}/>
             </div>
             ))}
             
+          </Col>
+          <Col md={6}>
+            <h3>{this.props.state.id}</h3>
           </Col>
           
         </Row>

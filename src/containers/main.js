@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    keyTrigger: () => dispatch(addTrigger('A'))
+    keyTrigger: (letter) => dispatch(addTrigger(letter))
   }
 }
 
