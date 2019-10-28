@@ -7,6 +7,7 @@ import './index.css';
 import Main from './containers/main';
 import reducer from './reducers/reducer';
 import * as serviceWorker from './serviceWorker';
+// import DrumPad from './components/drumPad';
 
 const store = createStore(reducer);
 

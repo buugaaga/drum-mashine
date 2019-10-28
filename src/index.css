@@ -19,29 +19,37 @@ code {
   margin-bottom: auto;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
-  justify-content: start;
-  align-items: middle;
+  
+
   box-shadow: 0 0 10px gray;
-  overflow: hidden;
+ 
+}
+.row {
+  height: 100%;
 }
 .wrapper {
   
   width: 50%;
-  display: block;
-  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
 }
 .input {
   height: 35px;
   border-radius: 3px;
 }
-button {
+.button {
+  background-color: brown;
   margin: 5px;
   width: 80px;
   height: 40px;
   border: 1px solid gray;
   border-radius: 3px;
   box-shadow: 0 0 10px gray;
+  text-align: center;
+  line-height: 30px;
 }
 button:hover {
   box-shadow: 0 0 10px green;
@@ -49,4 +57,15 @@ button:hover {
 .reset:hover {
   box-shadow: 0 0 10px red;
 }
+#display {
+  height: 70px;
+  width: 220px;
+  border: 1px solid yellow;
+  margin-bottom: 20px;
+  background-color: wheat;
+  color: gray;
 
+  display: flex;
+  justify-content: center;
+  align-content: middle;
+}

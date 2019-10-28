@@ -1,33 +1,19 @@
 
 import { connect } from 'react-redux';
 
+import { addTrigger } from '../actions';
 import Main from '../components/main';
+
 
 const mapStateToProps = (state) => {
   return {state};
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     onChange: (event) =>
-//       dispatch({
-//         type: 'INPUT',
-//         input: event.target.value
-//       }),
-//     submitMessage: () =>
-//       dispatch({
-//         type: 'ADD'
-//       }),
-//     reset: () =>
-//       dispatch({
-//         type: 'RESET'
-//       }),
-//     didMount: () => 
-//       dispatch({
-//         type: 'DID-MOUNT'
-//       })
-//     }
-// }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    keyTrigger: () => dispatch(addTrigger('A'))
+  }
+}
 
 
-export default connect(mapStateToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
