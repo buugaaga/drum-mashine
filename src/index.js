@@ -3,17 +3,17 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import Main from './containers/main';
+import App from './containers/main';
 import reducer from './reducers/reducer';
 import * as serviceWorker from './serviceWorker';
-// import DrumPad from './components/drumPad';
 
 const store = createStore(reducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Main />
+    <App />
   </Provider>,
   document.getElementById('root'));
 

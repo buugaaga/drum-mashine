@@ -51,8 +51,11 @@ code {
   text-align: center;
   line-height: 30px;
 }
-button:hover {
+.button:hover {
   box-shadow: 0 0 10px green;
+}
+.button:active {
+  background-color: blue;
 }
 .reset:hover {
   box-shadow: 0 0 10px red;

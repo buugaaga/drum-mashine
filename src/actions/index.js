@@ -48,6 +48,13 @@ export const bankSound = [{
 },
 ];
 
+export const addAllSounds = (all) => {
+  return ({
+    type: all,
+    soundData: bankSound
+  })
+}
+
 export const addTrigger = (letter) => {
   let indexLetter = keysTrigger.indexOf(letter);
   return ({
