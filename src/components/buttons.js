@@ -2,7 +2,7 @@ import React from 'react';
 
 const Buttons = ({dataUrl, letterVal, dataName, handleClickOfButtons, id}) => {
   return (
-  <div 
+  <button
     id={id}
     data-letter={letterVal}
     className='button drum-pad'  
@@ -10,8 +10,8 @@ const Buttons = ({dataUrl, letterVal, dataName, handleClickOfButtons, id}) => {
     onClick={handleClickOfButtons}
   >
       {letterVal}
-      <audio src={dataUrl} id={letterVal}></audio>
-  </div>
+      <audio className="clip" src={dataUrl} id={letterVal}></audio>
+  </button>
   )
 }
 

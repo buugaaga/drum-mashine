@@ -28,7 +28,6 @@ code {
   height: 100%;
 }
 .wrapper {
-  
   width: 50%;
   display: flex;
   flex-direction: row;
@@ -36,12 +35,8 @@ code {
   justify-content: center;
   align-content: center;
 }
-.input {
-  height: 35px;
-  border-radius: 3px;
-}
 .button {
-  background-color: brown;
+  
   margin: 5px;
   width: 80px;
   height: 40px;
@@ -55,12 +50,21 @@ code {
   box-shadow: 0 0 10px green;
 }
 .button:active {
-  background-color: blue;
+  background-color: palevioletred;
 }
-.reset:hover {
-  box-shadow: 0 0 10px red;
+.button:focus {
+  outline: none;
+}
+.trigger {
+  margin-bottom: 30px;
+  margin-top: 10px;
+  margin-left: 40px;
+}
+.toggleBotton {
+  margin-right: 30px;
 }
 #display {
+  
   height: 70px;
   width: 220px;
   border: 1px solid yellow;
@@ -70,5 +74,7 @@ code {
 
   display: flex;
   justify-content: center;
-  align-content: middle;
+}
+h3 {
+  line-height: 50px;
 }

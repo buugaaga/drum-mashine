@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addTrigger, addAllSounds } from '../actions';
+import { addTrigger, addAllSounds, keysTrigger } from '../actions';
 import Main from '../components/main';
 
 
@@ -11,21 +11,25 @@ class App extends React.Component {
   
 
   componentDidMount() {
+    console.log("mounted")
     document.addEventListener("keydown", this.handleKeyDown);
   }
 
-  componentWillUnmount() {
+  componentWillUnmount() { 
+    console.log("unmounted")
     document.removeChild("keydown", this.handleKeyDown);
   }
   //добаваляет слушатель события нажатия клавиши
   handleKeyDown(e) {
-    console.log(e);
+    console.log(e.key.toUpperCase());
+    if(keysTrigger.includes(e.key.toUpperCase())) {
+      playSound(e.key.toUpperCase());
+    }
   }
 
-  // обрабатывает клик кнопки и воспроизводит звук для каждой кнопки и вызывает функцию добавление название звука
+  // обрабатывает клик кнопки и вызывает функцию воспроизведения звука и вызывает функцию добавление названия звука
   handleClick(e) {
     console.log(e.target.dataset.letter)
-    
     playSound(e.target.dataset.letter)
     displayNameOfSound(e.target.dataset.name)
   }
@@ -45,12 +49,13 @@ class App extends React.Component {
   }
 }
 
+//находит элемент аудио и воспроизводит звук
 function playSound(letter) {
   let sound = document.getElementById(letter);
   sound.play();
 }
 
-//нахожу display and отпраляю туда текст звука
+//нахожу display и отпраляю туда текст звука
 const displayNameOfSound = (name) => {
   let display = document.getElementById('display');
   display.innerHTML = `<h3>${name}</h3>`;

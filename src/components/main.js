@@ -27,7 +27,7 @@ const Main = (props) => {
           )
         }
         </Col>
-        <Col  md={6} className="justify-content-center">
+        <Col  md={6} className="">
           <Trigger />
           <Display />
         </Col>
