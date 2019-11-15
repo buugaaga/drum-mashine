@@ -8,13 +8,29 @@ import Main from '../components/main';
 
 
 class App extends React.Component {
- 
+  
+
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    document.removeChild("keydown", this.handleKeyDown);
+  }
+  //добаваляет слушатель события нажатия клавиши
+  handleKeyDown(e) {
+    console.log(e);
+  }
+
   // обрабатывает клик кнопки и воспроизводит звук для каждой кнопки и вызывает функцию добавление название звука
   handleClick(e) {
-    let audioButton = new Audio(e.target.dataset.url);
-    audioButton.play()
+    console.log(e.target.dataset.letter)
+    
+    playSound(e.target.dataset.letter)
     displayNameOfSound(e.target.dataset.name)
   }
+
+  
 
   render() {
     console.log(this.props)
@@ -27,6 +43,11 @@ class App extends React.Component {
     />
     )
   }
+}
+
+function playSound(letter) {
+  let sound = document.getElementById(letter);
+  sound.play();
 }
 
 //нахожу display and отпраляю туда текст звука

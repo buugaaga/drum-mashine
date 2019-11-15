@@ -5,23 +5,29 @@ import  { keysTrigger } from '../actions';
 
 import Display from './display';
 import Trigger from './trigger';
+import { Buttons } from './buttons';
 
 
-const Main = function(props) {
+const Main = (props) => {
   console.log(props)
   return (
-    <Container>
+    <Container id='drum-machine'>
       <Row className="align-items-center">
         <Col md={6} className='wrapper'>
         { keysTrigger.map( (val, i) => (
-              <div className='button' key={i} data-url={props.bankSound[i].url} data-name={props.bankSound[i].id} onClick={e => props.handleClick(e)}>
-                {val}
-              </div>
+              <Buttons 
+                key={i}
+                id={props.bankSound[i].id}
+                dataUrl={props.bankSound[i].url}
+                dataName={props.bankSound[i].id}
+                handleClickOfButtons={props.handleClick}
+                letterVal={val}
+              />
             )
           )
         }
         </Col>
-        <Col  md={6}>
+        <Col  md={6} className="justify-content-center">
           <Trigger />
           <Display />
         </Col>
