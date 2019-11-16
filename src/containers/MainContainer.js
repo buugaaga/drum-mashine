@@ -2,10 +2,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addTrigger, addAllSounds, keysTrigger } from '../actions';
+import { keysTrigger } from '../dataOfSounds';
+import { triggerDataSounds } from '../actions';
 import Main from '../components/main';
 
+//находит элемент аудио и воспроизводит звук
+function playSound(letter) {
+  let sound = document.getElementById(letter);
+  sound.play();
+}
 
+//нахожу display и отпраляю туда текст звука
+const displayNameOfSound = (name) => {
+  let display = document.getElementById('display');
+  display.innerHTML = `<h3>${name}</h3>`;
+}
 
 class App extends React.Component {
   
@@ -34,7 +45,11 @@ class App extends React.Component {
     displayNameOfSound(e.target.dataset.name)
   }
 
-  
+  triggerHandle = (e) => {
+    
+    this.props.triggerDataSoundsDisptch(e);
+    console.log(this.props);
+  }
 
   render() {
     console.log(this.props)
@@ -42,33 +57,24 @@ class App extends React.Component {
     return (
     <Main 
       handleClick={this.handleClick}
-      addAllSounds={this.props.addAllSounds}
-      bankSound={this.props.state.bankSound}
+      bankSound={this.props.bankSound}
+      triggerHandle={this.triggerHandle}
     />
     )
   }
 }
 
-//находит элемент аудио и воспроизводит звук
-function playSound(letter) {
-  let sound = document.getElementById(letter);
-  sound.play();
-}
 
-//нахожу display и отпраляю туда текст звука
-const displayNameOfSound = (name) => {
-  let display = document.getElementById('display');
-  display.innerHTML = `<h3>${name}</h3>`;
-}
 
 const mapStateToProps = (state) => {
-  return {state};
+  return {
+    bankSound: state.bankSound
+  };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    keyTrigger: (letter) => dispatch(addTrigger(letter)),
-    addAllSounds: (all) => dispatch(addAllSounds(all))
+    triggerDataSoundsDisptch: (value) => dispatch(triggerDataSounds(value))
   }
 }
 

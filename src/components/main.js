@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
-import  { keysTrigger } from '../actions';
+import  { keysTrigger } from '../dataOfSounds';
 
 import Display from './display';
 import Trigger from './trigger';
@@ -28,7 +28,9 @@ const Main = (props) => {
         }
         </Col>
         <Col  md={6} className="">
-          <Trigger />
+          <Trigger 
+            triggerHandle={props.triggerHandle}
+          />
           <Display />
         </Col>
       </Row>

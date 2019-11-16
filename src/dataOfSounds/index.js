@@ -1,3 +1,5 @@
+const keysTrigger = ['Q', 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C'];
+
 const dataSounds1 = [{
   keyCode: 81,
   keyTrigger: 'Q',
@@ -93,4 +95,4 @@ const dataSounds2 = [{
   url: 'https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3'
 }];
 
-export { dataSounds1, dataSounds2 };
+export { dataSounds1, dataSounds2, keysTrigger };

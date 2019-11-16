@@ -1,18 +1,18 @@
 
-import { keysTrigger, bankSound } from '../actions';
 
+import { dataSounds1, dataSounds2 } from '../dataOfSounds';
 
-const initialState = { bankSound: bankSound};
+const initialState = { bankSound: dataSounds1};
 
 const reducer = (state = initialState, action) => {
-  
-  if (keysTrigger.includes(action.type) ) {
-    return Object.assign({}, state, action.soundData);
-  } else if (action.type === "ALL") {
-    return Object.assign({}, state, action.soundData)
-  }
-
-  return state;
+  switch (action.type) {
+    case "TWO":
+      return Object.assign({}, state, { bankSound: dataSounds2 });
+    case "ONE":
+      return Object.assign({}, state, { bankSound: dataSounds1 })
+    default:
+      return state;
+    }
   
 }
 
