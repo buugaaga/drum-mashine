@@ -13,7 +13,7 @@ const Main = (props) => {
   return (
     <Container id='drum-machine'>
       <Row className="align-items-center">
-        <Col md={6} className='wrapper'>
+        <Col md={6} xs={12} className='wrapper'>
         { keysTrigger.map( (val, i) => (
               <Buttons 
                 key={i}
